@@ -5,7 +5,7 @@ FROM ros:$ROS_DISTRO-ros-base
 
 ## Config args
 ARG USERNAME=ubuntu
-ARG WORKSPACE=/home/$USERNAME/int_brain_ws
+ARG WORKSPACE=/home/$USERNAME/jr_bot_ws
 
 ## Make ubuntu a sudo user
 RUN echo "ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ubuntu \
