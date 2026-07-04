@@ -1,4 +1,4 @@
-FROM ghcr.io/eccentricorange/int_brain_common:amd64-v1.0.1
+FROM ghcr.io/jr_ros/jr_bot_common:amd64-v1.0.0
 
 ENV PLATFORM=host
 
