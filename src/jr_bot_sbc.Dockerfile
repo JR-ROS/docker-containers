@@ -1,4 +1,4 @@
-FROM ghcr.io/jr_ros/jr_bot_common:aarch64-v1.1
+FROM ghcr.io/jr-ros/jr_bot_common:aarch64-v1.1
 
 ENV PLATFORM=sbc
 

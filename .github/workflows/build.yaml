@@ -40,8 +40,8 @@ jobs:
     strategy:
       matrix:
         config:
-          - { build_context: './src', image_name: 'int_brain_common', image_version: "amd64-${{ needs.get-version.outputs.image_version }}", runs_on: ubuntu-24.04 }
-          - { build_context: './src', image_name: 'int_brain_common', image_version: "aarch64-${{ needs.get-version.outputs.image_version }}", runs_on: ubuntu-24.04-arm }
+          - { build_context: './src', image_name: 'jr_bot_common', image_version: "amd64-${{ needs.get-version.outputs.image_version }}", runs_on: ubuntu-24.04 }
+          - { build_context: './src', image_name: 'jr_bot_common', image_version: "aarch64-${{ needs.get-version.outputs.image_version }}", runs_on: ubuntu-24.04-arm }
     uses: ./.github/workflows/build-workflow.yaml
     with:
       build_context: ${{ matrix.config.build_context }}
@@ -59,8 +59,8 @@ jobs:
     strategy:
       matrix:
         config:
-          - { build_context: './src', image_name: 'int_brain_host', image_version: "amd64-${{ needs.get-version.outputs.image_version }}", runs_on: ubuntu-24.04 }
-          - { build_context: './src', image_name: 'int_brain_sbc', image_version: "aarch64-${{ needs.get-version.outputs.image_version }}", runs_on: ubuntu-24.04-arm }
+          - { build_context: './src', image_name: 'jr_bot_host', image_version: "amd64-${{ needs.get-version.outputs.image_version }}", runs_on: ubuntu-24.04 }
+          - { build_context: './src', image_name: 'jr_bot_sbc', image_version: "aarch64-${{ needs.get-version.outputs.image_version }}", runs_on: ubuntu-24.04-arm }
     uses: ./.github/workflows/build-workflow.yaml
     with:
       build_context: ${{ matrix.config.build_context }}
