@@ -17,7 +17,7 @@ RUN apt-get install --no-install-recommends -y \
     i2c-tools
 
 USER ubuntu
-WORKDIR $WORKSPACES
+WORKDIR $WORKSPACE
 
-LABEL org.opencontainers.image.authors="eccentricOrange, exMachina316"
-LABEL org.opencontainers.image.source="https://github.com/eccentricOrange/int-brain-containers"
+LABEL org.opencontainers.image.authors="eccentricOrange"
+LABEL org.opencontainers.image.source="https://github.com/JR-ROS/docker-containers"

@@ -31,7 +31,7 @@ jobs:
 
 
   # Stage 1: Common Images
-  int-brain-common:
+  jr-bot-common:
     needs: get-version
     name: Common Images
     permissions:
@@ -51,7 +51,7 @@ jobs:
 
   # Stage 2: Specific Images with packages
   specific:
-    needs: [get-version, int-brain-common]
+    needs: [get-version, jr-bot-common]
     name: Specific Images with packages
     permissions:
       packages: write

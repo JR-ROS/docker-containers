@@ -74,7 +74,7 @@ While there are several sections as described earlier, we shall dive deeper into
 ```yaml
 # Stage 2: Specific Images with packages
   specific:
-    needs: [get-version, int-brain-common]
+    needs: [get-version, jr-bot-common]
     name: Specific Images with packages
     permissions:
       packages: write
@@ -93,7 +93,7 @@ While there are several sections as described earlier, we shall dive deeper into
 ```
 
 Let's break this down:
--   `needs`: This job depends on the `changes` job and the `get-version` and `int-brain-common` jobs. It will only run if these jobs are successful. This ensures that dependant images are built in the correct order.
+-   `needs`: This job depends on the `changes` job and the `get-version` and `jr-bot-common` jobs. It will only run if these jobs are successful. This ensures that dependant images are built in the correct order.
 -   `permissions`: This job requires write access to packages (to push the built images) and read access to contents (to read the repository).
 -   `strategy`: This defines a matrix strategy for the job. In this case, we have two configurations:
     -   `int_brain_host`: The image for the Host PC

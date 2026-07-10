@@ -1,11 +1,17 @@
 # Docker for ROS Development
 
 ## Quickstart
-Simply pull the images available from the packages section and refer the actual source code [int-brain-ros](https://github.com/exMachina316/int-brain-ros/) for more steps.
+Simply pull the images available from the packages section and refer the actual source code [jt_bot_ros](https://github.com/JR-ROS/jr_bot_ros) for more steps.
+
+Download the image using the following command:
+
+```bash
+docker pull ghcr.io/jr-ros/jr_bot_host:amd64-v1.1.1
+```
 
 ___
 
-This repository provides the ROS2 Docker images for easy development with the [int-brain-stm32](https://github.com/eccentricOrange/int-brain-stm32) project.
+This repository provides the ROS2 Docker images for easy development with the [JR Bot](https://github.com/JR-ROS/jr_bot_ros) project.
 
 This documentation is split into four parts:
 
@@ -21,9 +27,9 @@ This documentation is split into four parts:
 
 | Image name | Base image | Intended target | Features |
 | --- | --- | --- | --- |
-| `int_brain_common` | [`ros:jazzy-ros-base`](https://hub.docker.com/_/ros/) | AMD\_64 Host PC and Aarch64 SBC | - Basic ROS2 Jazzy installation with common packages <br> - Privileged `ubuntu` user |
-| `int_brain_host` | `int_brain_common:amd64` | AMD\_64 Host PC | - PlotJuggler <br> - Gazebo Harmonic <br> - Join state publisher GUI |
-| `int_brain_sbc` | `int_brain_common:aarch64` | Aarch64 SBC | I/O-related packages |
+| `jr_bot_common` | [`ros:jazzy-ros-base`](https://hub.docker.com/_/ros/) | AMD\_64 Host PC and Aarch64 SBC | - Basic ROS2 Jazzy installation with common packages <br> - Privileged `ubuntu` user |
+| `jr_bot_host` | `jr_bot_common:amd64` | AMD\_64 Host PC | - PlotJuggler <br> - Gazebo Harmonic <br> - Join state publisher GUI |
+| `jr_bot_sbc` | `jr_bot_common:aarch64` | Aarch64 SBC | I/O-related packages |
 
 
 ## Authenticating to GitHub Container Registry
@@ -52,10 +58,10 @@ To download a pre-built image from GitHub Container Registry (ghcr.io), use the 
 docker pull ghcr.io/eccentricorange/<image_name>:<tag>
 ```
 
-Replace `<image_name>` with the desired image name (e.g., `int_brain_host`). For example:
+Replace `<image_name>` with the desired image name (e.g., `jr_bot_host`). For example:
 
 ```bash
-docker pull ghcr.io/eccentricorange/int_brain_host:amd64-v1.0
+docker pull ghcr.io/eccentricorange/jr_bot_host:amd64-v1.0
 ```
 
 > [!IMPORTANT]
@@ -66,12 +72,12 @@ Since this repository uses CI/CD builds, certain considerations must be taken in
 
 1.  **Dependant images**
 
-    Certain images depend on other images. For example, `int_brain_host` depends on `int_brain_common`. If you want to build `int_brain_host`, you need to build `int_brain_common` first.
+    Certain images depend on other images. For example, `jr_bot_host` depends on `jr_bot_common`. If you want to build `jr_bot_host`, you need to build `jr_bot_common` first.
 
     In the dependant image's Dockerfile, you can specify the base image as follows:
 
     ```dockerfile
-    FROM ghcr.io/eccentricorange/int_brain_common:amd64-v1.0
+    FROM ghcr.io/eccentricorange/jr_bot_common:amd64-v1.0
     ```
 
     Again, please be mindful of the tag you are using. If you update a base image, and you want the changes to reflect in the dependant image, you need to rebuild the dependant image **with the correct tag of the base image**.
@@ -93,7 +99,7 @@ Since this repository uses CI/CD builds, certain considerations must be taken in
     Replace `<image_name>` with the desired image name, `<tag>` with the version tag, and `<build_context>` with the directory containing the Dockerfile. For example, to build the `humble` image:
 
     ```bash
-    docker build -t ghcr.io/eccentricorange/int_brain_common:amd64-v1.0 -f src/int_brain_common.Dockerfile .
+    docker build -t ghcr.io/eccentricorange/jr_bot_common:amd64-v1.0 -f src/jr_bot_common.Dockerfile .
     ```
 
 1.  **Pushing the image**
@@ -107,7 +113,7 @@ Since this repository uses CI/CD builds, certain considerations must be taken in
     For example, to push the `humble` image:
 
     ```bash
-    docker push ghcr.io/eccentricorange/int_brain_common:amd64-v1.0
+    docker push ghcr.io/eccentricorange/jr_bot_common:amd64-v1.0
     ```
 
 > [!IMPORTANT]
